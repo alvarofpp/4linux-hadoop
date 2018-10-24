@@ -1,0 +1,1 @@
+create 'movies', 'info'
