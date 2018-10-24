@@ -59,7 +59,7 @@ Os dados são acessados pela chave da linha (*Row Key*), família de coluna (*Co
 
 **Exemplos**:
 ```sh
-scan 'clientes',{FILTER => "KeyOnlyFilter()"}
+scan 'clientes', {FILTER => "KeyOnlyFilter()"}
 
 scan 'clientes', {FILTER => "(PrefixFilter ('2')) AND ColumnPrefixFilter('Estado')"}
 
