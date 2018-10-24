@@ -6,6 +6,11 @@ Pig Latin é utilizado para escrever programas de análise de dados no Apache Pi
 
 - [Pig Latin Basics](https://pig.apache.org/docs/latest/basic.html).
 
+**Executar script** pelo terminal:
+```bash
+pig -x tez script.pig
+```
+
 ### Descrição dos comandos
 
 | Comando      | Descrição     |
@@ -33,8 +38,10 @@ Modos de **carregar dados**:
 ```pig
 -- Normal
 lista_data = LOAD '/user/maria_dev/u.data' AS (usuarioID:int, filmeID:int, classificacao:int, data:int);
+
 -- Com separador |
 lista_item = LOAD '/user/maria_dev/u.item' USING PigStorage('|') AS (filmeID:int, filmeTitulo:chararray, dataLancamento:chararray, videoLancamento:chararray, link:chararray);
+
 -- JSON
 funcionarios_json = LOAD '/user/maria_dev/funcionarios.json' USING JsonLoader('id_func:int, nome:chararray, cargo:chararray, salario:chararray, departamento:chararray');
 ```
@@ -43,6 +50,7 @@ Modos de **gravar dados**:
 ```pig
 -- Com separador ;
 STORE lista_item INTO 'outputItem' USING PigStorage(';');
+
 -- JSON
 STORE funcionarios_json INTO '/user/maria_dev/arquivo.json' USING JsonStorage();
 ```

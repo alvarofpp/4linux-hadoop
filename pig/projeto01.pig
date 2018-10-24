@@ -1,13 +1,13 @@
 -- Ler os dados
 ratings = LOAD '/user/maria_dev/u.data' AS (
-	userID:int,
-	movieID:int,
+    userID:int,
+    movieID:int,
     rating:int,
     ratingTime:int
     );
 movies = LOAD '/user/maria_dev/u.item' USING PigStorage('|') AS (
-	movieID:int,
-	movieTitle:chararray,
+    movieID:int,
+    movieTitle:chararray,
     dateRelease:chararray,
     videoRelease: chararray,
     link: chararray
