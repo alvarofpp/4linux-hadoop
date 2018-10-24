@@ -1,13 +1,18 @@
 # Apache Pig
 Apache Pig é uma abstração para o MapReduce.
 
+Comando para entrar no **Shell do Pig**:
+```sh
+pig
+```
+
 ## Pig Latin
 Pig Latin é utilizado para escrever programas de análise de dados no Apache Pig. Sua sintaxe e semântica são semelhantes ao SQL.
 
 - [Pig Latin Basics](https://pig.apache.org/docs/latest/basic.html).
 
 **Executar script** pelo terminal:
-```bash
+```sh
 pig -x tez script.pig
 ```
 
@@ -53,4 +58,27 @@ STORE lista_item INTO 'outputItem' USING PigStorage(';');
 
 -- JSON
 STORE funcionarios_json INTO '/user/maria_dev/arquivo.json' USING JsonStorage();
+```
+
+### Integração com o Hive
+Comando para entrar no **Shell do Pig com integração com o Hive**:
+```sh
+pig ­-useHCatalog
+```
+
+| Comando      | Descrição     |
+| ------------ | ------------- |
+| `-useHCatalog` | Permite utilizar os arquivos .jar do HCatalog |
+| `HCatLoader` | Carregar tabela do Hive |
+| `HCatStorer` | Salvar tabela no Hive |
+
+**HCatalog**: Ferramenta de gerenciamento de armazenamento de tabelas para Hadoop que expõe os dados tabulares do metastore para outras aplicações Hadoop.
+
+**Exemplo**:
+```pig
+-- Carregando uma relação da tabela funcionarios que esta armazenada no Hive
+funcionarios_import_hive = LOAD 'funcionarios' USING org.apache.hive.hcatalog.pig.HCatLoader();
+
+-- Salvando so dados do Pig no Hive
+STORE cursos_vendas INTO 'vendas_import_pig' USING org.apache.hive.hcatalog.pig.HCatStorer();
 ```
