@@ -31,7 +31,7 @@ O Sqoop é um aplicativo de interface de linha de comandos para transferir dados
 | `list-tables` | Permite listar tabelas disponíveis em um banco de dados em um servidor de destino |
 
 **Exemplo**:
-Exemplo de comando para importar dados de um banco PostgreSQL:
 ```sh
+# Comando para importar dados de um banco PostgreSQL
 sqoop import --connect jdbc:postgresql://192.168.56.104:5432/roundcubemail --table contacts --username roundcube -P -m1
 ```
