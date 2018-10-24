@@ -1,13 +1,18 @@
 # Apache Pig
 Apache Pig é uma abstração para o MapReduce.
 
+Comando para entrar no **Shell do Pig**:
+```sh
+pig
+```
+
 ## Pig Latin
 Pig Latin é utilizado para escrever programas de análise de dados no Apache Pig. Sua sintaxe e semântica são semelhantes ao SQL.
 
 - [Pig Latin Basics](https://pig.apache.org/docs/latest/basic.html).
 
 **Executar script** pelo terminal:
-```bash
+```sh
 pig -x tez script.pig
 ```
 
@@ -53,4 +58,47 @@ STORE lista_item INTO 'outputItem' USING PigStorage(';');
 
 -- JSON
 STORE funcionarios_json INTO '/user/maria_dev/arquivo.json' USING JsonStorage();
+```
+
+### Integrações
+
+**HCatalog**: Ferramenta de gerenciamento de armazenamento de tabelas para Hadoop que expõe os dados tabulares do metastore para outras aplicações Hadoop.
+
+**-useHCatalog**: Permite utilizar os arquivos .jar do HCatalog.
+
+Comando para entrar no **Shell do Pig com integração para outras aplicações**:
+```sh
+pig ­-useHCatalog
+```
+
+#### Hive
+
+| Comando      | Descrição     |
+| ------------ | ------------- |
+| `HCatLoader` | Carregar tabela do Hive |
+| `HCatStorer` | Salvar tabela no Hive |
+
+**Exemplo**:
+```pig
+-- Carregando uma relação da tabela funcionarios que esta armazenada no Hive
+funcionarios_import_hive = LOAD 'funcionarios' USING org.apache.hive.hcatalog.pig.HCatLoader();
+
+-- Salvando so dados do Pig no Hive
+STORE cursos_vendas INTO 'vendas_import_pig' USING org.apache.hive.hcatalog.pig.HCatStorer();
+```
+
+#### HBase
+
+| Comando      | Descrição     |
+| ------------ | ------------- |
+| `HBaseStorage` | Carregar tabela do Hive |
+| `HCatStorer` | Salvar tabela no Hive |
+
+**Exemplo**:
+```pig
+-- Carregando uma relação da tabela vendas que esta armazenada no HBase
+vendas_hbase = LOAD 'hbase://vendas' USING org.apache.pig.backend.hadoop.hbase.HBaseStorage('info_produto:Produto info_produto:Marca info_produto:Departamento info_produto:Tipo info_venda:Vendedor info_venda:ID_Pag', '­loadKey true') AS (rowkey:int, Produto:chararray, Marca:chararray, Departamento:chararray, Tipo:chararray, Vendedor:chararray, ID_Pag:int);
+
+-- Salvando so dados do Pig no HBase
+STORE results INTO 'hbase://movies' USING org.apache.pig.backend.hadoop.hbase.HBaseStorage('info:movieID info:movieTitle info:avgRating');
 ```

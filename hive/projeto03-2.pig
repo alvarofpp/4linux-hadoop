@@ -21,8 +21,8 @@ moviesChosens = FILTER avgRatings BY avgRating > 3.0;
 -- Join
 moviesJoin = JOIN moviesChosens BY movieID, movies BY movieID;
 -- Seleciona os campos que queremos
-moviesFieldsSelected = FOREACH moviesJoin GENERATE moviesChosens::movieID, movieTitle, avgRating;
+moviesFieldsSelected = FOREACH moviesJoin GENERATE (int) moviesChosens::movieID AS movie_id, (chararray) movieTitle AS title, (double) avgRating AS average_rating;
 -- Ordenar decrescentemente
-results = ORDER moviesFieldsSelected BY avgRating DESC;
--- Exibir resultado
-DUMP results;
+results = ORDER moviesFieldsSelected BY average_rating DESC;
+-- Salvar os resultados no Hive
+STORE results INTO 'projeto_import_pig' USING org.apache.hive.hcatalog.pig.HCatStorer();
