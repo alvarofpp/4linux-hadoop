@@ -57,16 +57,6 @@ hive ­-f /home/maria_dev/scripts/script_hive.q
 | `WHERE` | Cláusula usada para especificar uma condição ao buscar os dados de uma única tabela ou juntando-se a várias tabelas |
 | `WITH SERDEPROPERTIES` | Define os campos utilizando durante a exportação de dados |
 
-| `TABLES` | Permite |
-| `TABLES` | Permite |
-| `TABLES` | Permite |
-| `TABLES` | Permite |
-| `TABLES` | Permite |
-| `TABLES` | Permite |
-| `TABLES` | Permite |
-| `TABLES` | Permite |
-| `TABLES` | Permite |
-
 Modos de **carregar dados**:
 ```q
 -- Normal
