@@ -21,7 +21,7 @@ moviesChosens = FILTER avgRatings BY avgRating > 3.0;
 -- Join
 moviesJoin = JOIN moviesChosens BY movieID, movies BY movieID;
 -- Seleciona os campos que queremos
-moviesFieldsSelected = FOREACH moviesJoin GENERATE moviesChosens::movieID,movieTitle,avgRating;
+moviesFieldsSelected = FOREACH moviesJoin GENERATE moviesChosens::movieID, movieTitle, avgRating;
 -- Ordenar decrescentemente
 results = ORDER moviesFieldsSelected BY avgRating DESC;
 -- Exibir resultado

@@ -24,5 +24,5 @@ moviesJoin = JOIN moviesChosens BY movieID, movies BY movieID;
 moviesFieldsSelected = FOREACH moviesJoin GENERATE (int) moviesChosens::movieID AS movie_id, (chararray) movieTitle AS title, (double) avgRating AS average_rating;
 -- Ordenar decrescentemente
 results = ORDER moviesFieldsSelected BY average_rating DESC;
--- Exibir resultado
+-- Salvar os resultados no Hive
 STORE results INTO 'projeto_import_pig' USING org.apache.hive.hcatalog.pig.HCatStorer();
