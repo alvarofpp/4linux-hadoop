@@ -35,3 +35,16 @@ O Sqoop é um aplicativo de interface de linha de comandos para transferir dados
 # Comando para importar dados de um banco PostgreSQL
 sqoop import --connect jdbc:postgresql://192.168.56.104:5432/roundcubemail --table contacts --username roundcube -P -m1
 ```
+
+## Integrações
+
+```sh
+# MySQL2Hive
+sqoop import --connect jdbc:mysql://localhost:3306/movielens --driver com.mysql.jdbc.Driver --username root -P --split-by id --table classificacao --hive-import --hive-table default.desafio_mysql_hive;
+
+# MySQL2HBase
+sqoop import --connect jdbc:mysql://localhost:3306/movielens --driver com.mysql.jdbc.Driver --username root -P --table classificacao --hbase-table desafio_mysql_hbase --hbase-row-key id --column-family filme -split-by id -m1;
+
+# MySQL2HDFS
+sqoop import --connect jdbc:mysql://localhost:3306/movielens --driver com.mysql.jdbc.Driver --username root -P --table classificacao --target-dir /user/maria_dev/desafio_sqoop/mysql-hdfs -m1;
+```
