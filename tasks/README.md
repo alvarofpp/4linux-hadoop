@@ -34,24 +34,16 @@
 - `task-07.sh`
 - `create_sfo_weather_table.q`
 
-
-
-
-
 ![Task 08](https://github.com/alvarofpp/4linux-curso-hadoop/blob/master/tasks/task-08.jpeg)
-
-**Arquivos**:
 - `task-08.sh`
 - `flights_weather.hive`
 
-![Task 09](https://github.com/alvarofpp/4linux-curso-hadoop/blob/master/tasks/task-09.jpeg)
 
-**Arquivos**:
+
+![Task 09](https://github.com/alvarofpp/4linux-curso-hadoop/blob/master/tasks/task-09.jpeg)
 - `task-09.sh`
 - `flightdelays_nonzero.pig`
 
 ![Task 10](https://github.com/alvarofpp/4linux-curso-hadoop/blob/master/tasks/task-10.jpeg)
-
-**Arquivos**:
 - `task-10.sh`
 - `flightdelays_nonzero.pig`
