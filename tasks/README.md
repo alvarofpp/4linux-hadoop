@@ -38,12 +38,10 @@
 - `task-08.sh`
 - `flights_weather.hive`
 
-
-
 ![Task 09](https://github.com/alvarofpp/4linux-curso-hadoop/blob/master/tasks/task-09.jpeg)
 - `task-09.sh`
-- `flightdelays_nonzero.pig`
+- `weather_partitioned.hive`
 
 ![Task 10](https://github.com/alvarofpp/4linux-curso-hadoop/blob/master/tasks/task-10.jpeg)
 - `task-10.sh`
-- `flightdelays_nonzero.pig`
+- `flightinfo.sql`
