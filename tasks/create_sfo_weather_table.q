@@ -2,7 +2,7 @@
 DROP TABLE IF EXISTS sfo_weather;
 
 -- Cria tabela temporaria
-CREATE EXTERNAL TABLE sfo_weather_temp (
+CREATE TABLE sfo_weather_temp (
     station_name STRING,
     year INT,
     month INT,
@@ -10,13 +10,14 @@ CREATE EXTERNAL TABLE sfo_weather_temp (
     precipitation INT,
     temperature_max INT,
     temperature_min INT
-) ROW FORMAT DELIMITED FIELDS TERMINATED BY ',';
+) ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
+STORED AS TEXTFILE;
 
 -- Povoa a tabela temporaria
 LOAD DATA LOCAL INPATH '/home/maria_dev/HDPCD-Certification/datasets/flightdelays/sfo_weather.csv' INTO TABLE sfo_weather_temp;
 
 -- Cria tabela
-CREATE EXTERNAL TABLE sfo_weather (
+CREATE TABLE sfo_weather (
     station_name STRING, 
     year INT, 
     month INT, 
