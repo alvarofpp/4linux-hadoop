@@ -1,6 +1,6 @@
 -- Carregar os dados dos arquivos
 flightdelays = LOAD '/user/maria_dev/flightdelays_clean/' USING PigStorage(',');
--- Pegar as linhas que possui Dest igual a DEN
+-- Pegar as linhas que possui Dest igual a DEN e ArrDelay >= 60
 flightdelays_filter = FILTER flightdelays BY ($6 >= 60) AND ($8 == 'DEN');
 -- Agrupar
 flightdelays_group = GROUP flightdelays_filter ALL;
