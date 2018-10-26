@@ -15,7 +15,7 @@ O Hive Query Language (HQL) tem semântica e funções semelhantes como SQL padr
 
 **Executar script** pelo terminal:
 ```sh
-hive ­-f /home/maria_dev/scripts/script_hive.q
+hive -f /home/maria_dev/scripts/script_hive.q
 ```
 
 **Script Hive**: Como é o caso de scripts em outras linguagens, como SQL, Unix Shell etc., os scripts do Hive são usados para executar um conjunto de comandos Hive coletivamente. Isso ajuda na redução do tempo e esforço investido na escrita e execução de cada comando manualmente.
