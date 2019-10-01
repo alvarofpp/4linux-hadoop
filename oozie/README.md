@@ -56,6 +56,7 @@ Um aplicativo Oozie é composto por um arquivo que define a lógica do aplicativ
 O Oozie suporta outra abstração chamada coordenadora que agenda e executa o fluxo de trabalho com base em disparadores; Um fluxo de trabalho Oozie pode ser invocado manualmente e sob demanda usando a interface de linha de comando Oozie (CLI) e isso é suficiente para alguns casos básicos de uso. No entanto, para a maioria dos casos de uso prático, isso é inadequado e muito difícil de gerenciar. Por exemplo, poderíamos ter um requisito para executar o fluxo de trabalho todos os dias às 2 da manhã, sendo muito difícil alcançar esse comportamento usando apenas a CLI e básica. As aplicações do coordenador consistem em um arquivo coordinator.xml.
 
 **coordinator-app**
+
 | Diretivas do arquivo | Descrição     |
 | -------------------- | ------------- |
 | `name`               | Define o nome do fluxo de trabalho |
@@ -65,6 +66,7 @@ O Oozie suporta outra abstração chamada coordenadora que agenda e executa o fl
 | `timezone`           | Define o fuso horário da aplicação do coordenador |
 
 **controls**
+
 | Diretivas do arquivo | Descrição     |
 | -------------------- | ------------- |
 | `timeout`            | Define o tempo máximo, em minutos, de que uma ação materializada aguardará que as condições adicionais sejam satisfeitas antes de serem descartadas |
@@ -73,6 +75,7 @@ O Oozie suporta outra abstração chamada coordenadora que agenda e executa o fl
 | `throttle`           | Define o trabalho de coordenador pode especificar o valor de aceleração de materialização ou criação para suas ações de coordenador, isto é, quantas ações de coordenadoras máximas podem estar em estado WAITING simultaneamente |
 
 **action**
+
 | Diretivas do arquivo | Descrição     |
 | -------------------- | ------------- |
 | `app-path`               | Define o caminho no HDFS que contém o arquivo workflow.xml |
