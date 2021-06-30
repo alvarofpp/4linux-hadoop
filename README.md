@@ -1,4 +1,4 @@
-# 4linux-curso-hadoop
+# (4Linux) Big Data Analytics com Hadoop
 
 ## Ecossistema Hadoop
 O ecossistema Hadoop não é nem uma linguagem de programação nem um serviço, mas sim uma plataforma de serviços que resolve grandes problemas relacionados a processamento distribuído de dados. Você pode considerá-lo como uma suíte de serviços que engloba ferramentas para ingestão, armazenamento, análise e manutenção de dados.
